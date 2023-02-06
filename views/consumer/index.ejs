@@ -1,0 +1,40 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+	<header class="main-header">
+		<nav class="main-header__nav">
+			<ul class="main-header__item-list">
+				<li class="main-header__item">
+					<h1>Clinica Odontologica</h1>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div class="container">
+		<ul class="nav nav-pills">
+			<li class="nav-item" style="margin-top: 20px">
+				<a class="nav-link" style="font-size: 25px" href="/odontologos.html"
+					>Administracion Odontologos</a
+				>
+				<a class="nav-link" style="font-size: 25px" href="/pacientes.html"
+					>Administracion Pacientes</a
+				>
+				<a class="nav-link" style="font-size: 25px" href="/turnos.html"
+					>Administracion Turnos</a
+				>
+			</li>
+		</ul>
+		<!-- <hr />
+		<ul class="nav nav-pills">
+			<li class="nav-item">
+				<a
+					class="nav-link"
+					href="/logout"
+					style="background-color: red; color: white"
+					>Cerrar sesion</a
+				>
+			</li>
+		</ul> -->
+	</div>
+	<%- include('../includes/end.ejs') %>
+</body>
