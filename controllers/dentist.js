@@ -11,7 +11,7 @@ exports.postDentist = (req, res, next) => {
 	})
 		.then((result) => {
 			console.log(result);
-			console.log('Created Product');
+			console.log('CREATED DENTIST!');
 			res.redirect('/dentist');
 		})
 		.catch((err) => {
@@ -34,7 +34,7 @@ exports.postEditDentist = (req, res, next) => {
 			return dentist.save();
 		})
 		.then((result) => {
-			console.log('UPDATED PRODUCT!');
+			console.log('UPDATED DENTIST!');
 			res.redirect('/dentist');
 		})
 		.catch((err) => console.log(err));
@@ -45,7 +45,7 @@ exports.getDentists = (req, res, next) => {
 		.then((dentists) => {
 			res.render('dentist/odontologos', {
 				pageTitle: 'Clínica Odontológica',
-				dentists: dentists,
+				data: dentists,
 			});
 		})
 		.catch((err) => console.log(err));
@@ -73,7 +73,7 @@ exports.postDeleteDentist = (req, res, next) => {
 			return dentist.destroy();
 		})
 		.then((result) => {
-			console.log('DESTROYED PRODUCT');
+			console.log('DESTROYED DENTIST');
 			res.redirect('/dentist');
 		})
 		.catch((err) => console.log(err));

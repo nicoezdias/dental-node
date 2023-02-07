@@ -48,6 +48,7 @@ Patient.hasMany(Appointment);
 Dentist.hasMany(Appointment);
 
 sequelize
+	// .sync({ force: true })
 	.sync()
 	.then((result) => {
 		return User.findByPk(1);

@@ -21,10 +21,6 @@ const Address = sequelize.define('address', {
 		type: Sequelize.STRING,
 		allowNull: false,
 	},
-	zipCode: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
 });
 
 module.exports = Address;

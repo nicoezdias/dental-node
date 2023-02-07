@@ -2,23 +2,20 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script
-		type="text/javascript"
-		src="/js/odontologo/update_odontologo.js"
-	></script>
+	<script type="text/javascript" src="/js/odontologo/update_odontologo.js"></script>
 </head>
 <body>
 	<header class="main-header">
 		<nav class="main-header__nav">
 			<ul class="main-header__item-list">
 				<li class="main-header__item">
-					<h2>Odontologos</h2>
+					<h2>Dentists</h2>
 				</li>
 				<li class="main-header__item">
 					<a href="/">Menu</a>
 				</li>
 				<li class="main-header__item">
-					<a href="/dentist/alta-odontologos">Agregar nuevo</a>
+					<a href="/dentist/alta-odontologos">Add New</a>
 				</li>
 			</ul>
 		</nav>
@@ -26,19 +23,19 @@
 	<div class="container">
 		<div id="div_odontologo_table">
 			<div class="row col-md-12 table-responsive">
-				<% if (dentists.length > 0) { %>
+				<% if (data.length > 0) { %>
 				<table id="odontologoTable" class="table table-striped">
 					<thead>
 						<tr>
 							<th>Id</th>
-							<th>Nombre</th>
-							<th>Apellido</th>
-							<th>Matricula</th>
+							<th>Name</th>
+							<th>Last Name</th>
+							<th>License</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody id="odontologoTableBody">
-						<% for (let  dent of dentists) { %>
+						<% for (let  dent of data) { %>
 							<tr id="tr_<%= dent.id  %>">
 									<td>
 										<button id= "btn_id_<%= dent.id  %>" type="button" class="btn btn-info btn_id"> 
@@ -101,7 +98,7 @@
 						<label for="license">License</label>
 						<input class="form-control" type="text" name="license" id="license">
 					</div>
-					<button type="submit" class="btn btn-primary">Modificar</button>
+					<button type="submit" class="btn btn-primary">Change</button>
 				</form>
 				<div id="response" style="display: none; margin: 10px"></div>
 			</div>

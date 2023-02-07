@@ -2,20 +2,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<!-- <script
-		type="text/javascript"
-		src="/js/odontologo/post_odontologo.js"
-	></script> -->
 </head>
 <body>
 	<header class="main-header">
 		<nav class="main-header__nav">
 				<ul class="main-header__item-list">
 					<li class="main-header__item">
-						<h2>Odontologos</h2>
+						<h2>Dentists</h2>
 					</li>
 					<li class="main-header__item">
-						<a href="/dentist">Listar Odontologos</a>
+						<a href="/dentist">List Dentists</a>
 					</li>
 				</ul>
 		</nav>
@@ -26,7 +22,7 @@
 				class="col-sm-7"
 				style="background-color: #e6fffa; padding: 10px; border-radius: 3px"
 			>
-				<h3>Agregar Odontologo</h3>
+				<h3>Add Dentist</h3>
 				<form class="product-form" action="/dentist/add" method="POST">
 					<div class="form-group">
 						<label  for="name">Name</label>
@@ -40,7 +36,7 @@
 						<label for="license">License</label>
 						<input class="form-control" type="text" name="license" id="license">
 					</div>		
-					<button class="btn btn-danger" type="submit">Guardar</button>
+					<button class="btn btn-danger" type="submit">Save</button>
 				</form>
 				<div id="response" style="display: none; margin-top: 10px"></div>
 			</div>
