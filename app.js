@@ -17,15 +17,11 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const adminRoutes = require('./routes/admin.routes');
-const consumerRoutes = require('./routes/consumer.routes');
+const patientRoutes = require('./routes/patient.routes');
+const dentistRoutes = require('./routes/dentist.routes');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-router.get('/', (req, res, next) => {
-	res.sendFile(path.join(__dirname, 'views', 'index.html'));
-});
 
 app.use((req, res, next) => {
 	User.findByPk(1)
@@ -36,8 +32,14 @@ app.use((req, res, next) => {
 		.catch((err) => console.log(err));
 });
 
-app.use('/admin', adminRoutes);
-app.use(consumerRoutes);
+app.use('/patient', patientRoutes);
+app.use('/dentist', dentistRoutes);
+
+app.get('/', (req, res, next) => {
+	res.render('index', {
+		pageTitle: 'Clínica Odontológica',
+	});
+});
 
 app.use(errorController.get404);
 

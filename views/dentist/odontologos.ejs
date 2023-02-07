@@ -1,0 +1,111 @@
+<%- include('../includes/head.ejs') %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script
+		type="text/javascript"
+		src="/js/odontologo/update_odontologo.js"
+	></script>
+</head>
+<body>
+	<header class="main-header">
+		<nav class="main-header__nav">
+			<ul class="main-header__item-list">
+				<li class="main-header__item">
+					<h2>Odontologos</h2>
+				</li>
+				<li class="main-header__item">
+					<a href="/">Menu</a>
+				</li>
+				<li class="main-header__item">
+					<a href="/dentist/alta-odontologos">Agregar nuevo</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div class="container">
+		<div id="div_odontologo_table">
+			<div class="row col-md-12 table-responsive">
+				<% if (dentists.length > 0) { %>
+				<table id="odontologoTable" class="table table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Matricula</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="odontologoTableBody">
+						<% for (let  dent of dentists) { %>
+							<tr id="tr_<%= dent.id  %>">
+									<td>
+										<button id= "btn_id_<%= dent.id  %>" type="button" class="btn btn-info btn_id"> 
+											<%= dent.id  %>
+										</button>
+									</td>
+									<td class="td_first_name">
+										<%= dent.name.toUpperCase()  %>
+									</td>
+									<td class="td_last_name"> 
+										<%= dent.lastName.toUpperCase()   %>
+									</td> 
+									<td class="td_matricula">
+										<%= dent.license  %>
+									</td>
+									<td>
+										<form action="/dentist/delete" method="POST">
+											<input type="hidden" value="<%= dent.id %>" name="dentistId">
+											<button id="btn_delete_	<%= dent.id  %>" class="btn btn-danger btn_delete" type="submit">&times</button>
+										</form>
+									</td>
+							</tr>
+						<% } %>
+					</tbody>
+				</table>
+				<% } else { %>
+					<h2 style="margin-left: 40px;">No Products Found!</h2>
+				<% } %>
+			</div>
+		</div>
+		<div class="row">
+			<div
+				class="col-sm-12"
+				style="
+					display: none;
+					background-color: #e6fffa;
+					padding: 10px;
+					border-radius: 3px;
+				"
+				id="div_odontologo_updating"
+			>
+				<form id="update_odontologo_form" action="/dentist/edit" method="POST">
+					<div class="form-group">
+						<label for="dentistId">Id:</label>
+						<input type="number" class="form-control"
+							id="dentistId"
+							name="dentistId"
+							readonly
+						/>
+					</div>
+					<div class="form-group">
+						<label  for="name">Name</label>
+						<input class="form-control" type="text" name="name" id="name">
+					</div>
+					<div class="form-group">
+						<label for="lastName">Last Name</label>
+						<input class="form-control" type="text" name="lastName" id="lastName" >
+					</div>
+					<div class="form-group">
+						<label for="license">License</label>
+						<input class="form-control" type="text" name="license" id="license">
+					</div>
+					<button type="submit" class="btn btn-primary">Modificar</button>
+				</form>
+				<div id="response" style="display: none; margin: 10px"></div>
+			</div>
+		</div>
+		<hr />
+	</div>
+<%- include('../includes/end.ejs') %>

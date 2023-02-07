@@ -9,20 +9,12 @@ const Appointment = sequelize.define('appointment', {
 		allowNull: false,
 		primaryKey: true,
 	},
-	street: {
-		type: Sequelize.STRING,
+	date: {
+		type: Sequelize.DATE,
 		allowNull: false,
 	},
-	city: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-	province: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-	zipCode: {
-		type: Sequelize.STRING,
+	hour: {
+		type: Sequelize.TIME,
 		allowNull: false,
 	},
 });

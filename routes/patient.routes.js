@@ -2,7 +2,7 @@ const path = require('path');
 
 const express = require('express');
 
-const adminController = require('../controllers/admin');
+const patientController = require('../controllers/patient');
 
 const router = express.Router();
 
